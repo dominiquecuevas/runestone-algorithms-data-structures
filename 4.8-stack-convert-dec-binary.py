@@ -15,3 +15,23 @@ def divide_by_2(num):
 
 print(divide_by_2(42))
 print(bin(42))
+
+def base_converter(num, base):
+    digits = '0123456789ABCDEF'
+    stack = Stack()
+
+    while num > 0:
+        remainder = num % base
+        stack.push(remainder)
+        num = num // base
+
+    binary_string = ''
+    while not stack.isEmpty():
+        binary_string += digits[stack.pop()]
+
+    return binary_string
+
+print(base_converter(25,2))
+print(bin(25))
+print(base_converter(25,16))
+print(format(25,'02x'))
